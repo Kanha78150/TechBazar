@@ -1,4 +1,5 @@
 import { homeQuantityToggle } from "./homeQuantityToggle";
+import { handelAddToCart } from "./handelAddToCart";
 
 const productContainer = document.getElementById("productContainer");
 
@@ -15,7 +16,7 @@ export const showProductContainer = (products) => {
 
         // clone the product design
         const productClone = document.importNode(productTemplate.content, true);
-
+        // Now show the content of that product card
         productClone.querySelector(".productName").innerHTML = name;
 
         productClone.querySelector(".productDescription").innerHTML = description;
@@ -33,13 +34,18 @@ export const showProductContainer = (products) => {
         productClone.querySelector(".productImage").alt = name;
 
 
-        // Now show the content of that product card
+        //   Which card i have selected get that card by using id.
         productClone.querySelector("#cardValue").setAttribute('id', `card${id}`);
 
         // Increment and decrement the quantity (By Using Event Delegation)
         productClone.querySelector(".stockElement").addEventListener("click", (event) => {
             homeQuantityToggle(event, id, stock);
         });
+
+        // Add to cart functionality
+        productClone.querySelector(".add-to-cart-button").addEventListener("click", (event) => {
+            handelAddToCart(event, id, stock);
+        })
 
         // Now append the productClone into productContainer
         productContainer.append(productClone);
