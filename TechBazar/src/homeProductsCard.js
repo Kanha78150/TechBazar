@@ -14,8 +14,9 @@ export const showProductContainer = (products) => {
     products.forEach((currElem) => {
         const { id, name, category, brand, price, stock, description, image } = currElem;
 
-        // clone the product design
+        // clone the product design or template
         const productClone = document.importNode(productTemplate.content, true);
+
         // Now show the content of that product card
         productClone.querySelector(".productName").innerHTML = name;
 
