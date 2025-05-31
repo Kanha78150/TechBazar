@@ -1,4 +1,5 @@
 import { getCartProductFromLocalStorage } from "./getCartProductFromLocalStorage";
+import { showToast } from "./showToast";
 import { updateCartCIcon } from "./updateCartCIcon";
 
 getCartProductFromLocalStorage();
@@ -39,6 +40,8 @@ export const handelAddToCart = (event, id, stock) => {
         console.log(updatedCart);
 
         localStorage.setItem('cartProductList', JSON.stringify(updatedCart));
+        // Show toast message
+        showToast("add", id);
     }
 
     if (existingProduct) {
@@ -60,4 +63,7 @@ export const handelAddToCart = (event, id, stock) => {
 
     // update the navbar cart icon
     updateCartCIcon(arrLocalStorageProduct);
+
+    // Show toast message
+    showToast("add", id);
 };
