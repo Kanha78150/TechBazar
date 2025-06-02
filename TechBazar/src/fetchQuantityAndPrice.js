@@ -1,7 +1,8 @@
 import { getCartProductFromLocalStorage } from "./getCartProductFromLocalStorage";
 
+
 export const fetchQuantityAndPrice = (id, price) => {
-    // call the localstorage function to get the data
+ //! Step 4.7:- Call the localstorage function to get the data
     let cartProducts = getCartProductFromLocalStorage();
 
     let existingProduct = cartProducts.find((curProduct) => curProduct.id === id);
