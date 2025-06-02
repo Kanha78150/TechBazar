@@ -1,4 +1,5 @@
-import './style.css'
+import './style.css';
+import './footer.js';
 import products from "../API/products.json";
 import { showProductContainer } from './homeProductsCard';
 
